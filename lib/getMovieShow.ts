@@ -1,5 +1,7 @@
 "use server";
 
+import { Movie, SearchResults } from "@/typings";
+
 async function fetchFromTMDB(url: URL, cacheTime?: number) {
   url.searchParams.set("include_adult", "false");
   url.searchParams.set("include_video", "false");
@@ -20,7 +22,7 @@ async function fetchFromTMDB(url: URL, cacheTime?: number) {
   };
 
   const response = await fetch(url.toString(), options);
-  const data = await response.json(); //* Type definition
+  const data = await response.json();
 
   return data;
 }
@@ -28,17 +30,23 @@ async function fetchFromTMDB(url: URL, cacheTime?: number) {
 export async function getNowPlayingMovies() {
   const url = new URL("https://api.themoviedb.org/3/movie/now_playing");
   const data = await fetchFromTMDB(url);
-  return data.results;
+  return data.results as Movie[];
 }
 
 export async function getTrendingMovies() {
   const url = new URL("https://api.themoviedb.org/3/movie/popular");
   const data = await fetchFromTMDB(url);
+  return data.results as Movie[];
+}
+
+export async function getNowAiringTvShows() {
+  const url = new URL("https://api.themoviedb.org/3/tv/on_the_air");
+  const data = await fetchFromTMDB(url);
   return data.results;
 }
 
-export async function getUpcomingMovies() {
-  const url = new URL("https://api.themoviedb.org/3/movie/upcoming");
+export async function getTrendingTvShows() {
+  const url = new URL("https://api.themoviedb.org/3/tv/popular");
   const data = await fetchFromTMDB(url);
   return data.results;
 }

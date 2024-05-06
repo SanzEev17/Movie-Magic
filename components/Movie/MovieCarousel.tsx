@@ -1,5 +1,5 @@
 import React from "react";
-import MovieShowCard from "./MovieShowCard";
+import MovieCard from "./MovieCard";
 import { Movie } from "@/typings";
 
 type CarouselProps = {
@@ -8,7 +8,7 @@ type CarouselProps = {
   isVertical?: boolean;
 };
 
-const MovieShowCarousel = async ({
+const MovieCarousel = async ({
   title,
   data,
   isVertical = false,
@@ -21,12 +21,12 @@ const MovieShowCarousel = async ({
           isVertical ? "flex-wrap" : "overflow-x-scroll"
         } w-full py-4 flex space-x-5 no-scrollbar`}
       >
-        {data.map((movie) => (
-          <MovieShowCard key={movie.id} movieData={movie} />
+        {data.map((movieTv) => (
+          <MovieCard key={movieTv.id} movieData={movieTv} />
         ))}
       </div>
     </div>
   );
 };
 
-export default MovieShowCarousel;
+export default MovieCarousel;

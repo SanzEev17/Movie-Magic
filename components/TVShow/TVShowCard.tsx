@@ -1,20 +1,21 @@
 import React from "react";
-import Badge from "./Badge";
-import { Movie } from "@/typings";
+import Badge from "../Badge";
+import { TVShow } from "@/typings";
 import Image from "next/image";
 import { Star } from "lucide-react";
 
-const MovieShowCard = async ({ movieData }: { movieData: Movie }) => {
-  const averageRating = movieData.vote_average.toFixed(1);
-  const releaseYear = movieData.release_date.split("-")[0];
-  const imageUrl = `https://image.tmdb.org/t/p/original/${movieData.poster_path}`;
+const TVShowCard = async ({ tvShowData }: { tvShowData: TVShow }) => {
+  const averageRating = tvShowData.vote_average.toFixed(1);
+  const imageUrl = `https://image.tmdb.org/t/p/original/${tvShowData.poster_path}`;
+
+  const releaseYear = tvShowData.first_air_date.split("-")[0];
 
   return (
     <div className="min-w-44 h-64 rounded-xl shadow-custom overflow-hidden">
       <div className=" w-full h-full relative">
         <Image
           src={imageUrl}
-          alt={movieData.title}
+          alt={tvShowData.name}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 10vw"
           quality={80}
@@ -29,4 +30,4 @@ const MovieShowCard = async ({ movieData }: { movieData: Movie }) => {
   );
 };
 
-export default MovieShowCard;
+export default TVShowCard;
