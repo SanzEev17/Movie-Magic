@@ -1,6 +1,6 @@
 import HomeInfoCard from "@/components/HomeInfoCard";
 import MovieCarousel from "@/components/Movie/MovieCarousel";
-import TVShowCarousel from "@/components/TVShow/TVShowCarousel";
+import ContentCarousel from "@/components/ContentCarousel";
 import {
   getNowAiringTvShows,
   getNowPlayingMovies,
@@ -30,8 +30,8 @@ export default async function Home() {
         />
       </div>
       <div>
-        <MovieCarousel title="Trending movies" data={trendingMovies} />
-        <MovieCarousel title="Now playing movies" data={nowPlayingMovies} />
+        <ContentCarousel title="Trending movies" contentType="movie" data={trendingMovies} />
+        <ContentCarousel title="Now playing movies" contentType="movie" data={nowPlayingMovies} />
       </div>
       <div className="py-5">
         <HomeInfoCard
@@ -40,8 +40,16 @@ export default async function Home() {
         />
       </div>
       <div>
-        <TVShowCarousel title="Trending TV shows" data={trendingShows} />
-        <TVShowCarousel title="Now airing TV shows" data={nowAiringShows} />
+        <ContentCarousel
+          title="Trending TV shows"
+          contentType="tv"
+          data={trendingShows}
+        />
+        <ContentCarousel
+          title="Now airing TV shows"
+          contentType="tv"
+          data={nowAiringShows}
+        />
       </div>
     </main>
   );
