@@ -1,14 +1,12 @@
 import React from "react";
 
-const HomeInfoCard = ({
-  title,
-  description,
-  className,
-}: {
+type InfoCardProps = {
   title: string;
   description?: string;
   className?: string;
-}) => {
+};
+
+const HomeInfoCard = ({ title, description, className }: InfoCardProps) => {
   return (
     <div
       className={`${className} bg-gradient-to-br from-[#2A0845] to-[#6441A5] p-5 rounded-3xl`}

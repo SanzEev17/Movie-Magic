@@ -1,6 +1,12 @@
 import HomeInfoCard from "@/components/HomeInfoCard";
+import MovieShowCarousel from "@/components/MovieShowCarousel";
+import { getNowPlayingMovies, getTrendingMovies, getUpcomingMovies } from "@/lib/getMovieShow";
 
-export default function Home() {
+export default async function Home() {
+  const nowPlayingMovies = await getNowPlayingMovies() 
+  const trendingMovies = await getTrendingMovies()
+  const upcomingMovies = await getUpcomingMovies()
+
   return (
     <main className="flex-1 py-3">
       <h1 className="text-3xl font-semibold">Explore</h1>
@@ -16,6 +22,18 @@ export default function Home() {
           className="col-span-1 hidden lg:block"
         />
       </div>
+      <MovieShowCarousel
+        title="Trending movies"
+        data={trendingMovies}
+      />
+      <MovieShowCarousel
+        title="Now playing movies"
+        data={nowPlayingMovies}
+      />
+      <MovieShowCarousel
+        title="Upcoming movies"
+        data={upcomingMovies}
+      />
     </main>
   );
 }

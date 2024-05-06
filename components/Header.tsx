@@ -2,13 +2,12 @@
 import { ChevronLeft, Menu, Search } from "lucide-react";
 import React, { useState } from "react";
 
-const Header = ({
-  toggleSidebar,
-  isSidebarOpen,
-}: {
+type HeaderProps = {
   toggleSidebar: () => void;
   isSidebarOpen: boolean;
-}) => {
+};
+
+const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
