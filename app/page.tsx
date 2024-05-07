@@ -1,19 +1,9 @@
 import HomeInfoCard from "@/components/HomeInfoCard";
-import MovieCarousel from "@/components/Movie/MovieCarousel";
 import ContentCarousel from "@/components/ContentCarousel";
-import {
-  getNowAiringTvShows,
-  getNowPlayingMovies,
-  getTrendingMovies,
-  getTrendingTvShows,
-} from "@/lib/getMovieShow";
+import { getNowPlayingMovies, getPopularMovies } from "@/actions/getMovies";
+import { getNowAiringTvShows, getPopularTvShows } from "@/actions/getTvShows";
 
 export default async function Home() {
-  const nowPlayingMovies = await getNowPlayingMovies();
-  const trendingMovies = await getTrendingMovies();
-  const nowAiringShows = await getNowAiringTvShows();
-  const trendingShows = await getTrendingTvShows();
-
   return (
     <main className="flex-1 py-3">
       <h1 className="text-3xl font-semibold">Explore</h1>
@@ -30,8 +20,16 @@ export default async function Home() {
         />
       </div>
       <div>
-        <ContentCarousel title="Trending movies" contentType="movie" data={trendingMovies} />
-        <ContentCarousel title="Now playing movies" contentType="movie" data={nowPlayingMovies} />
+        <ContentCarousel
+          title="Popular movies"
+          contentType="movie"
+          fetchData={getPopularMovies}
+        />
+        <ContentCarousel
+          title="Now playing movies"
+          contentType="movie"
+          fetchData={getNowPlayingMovies}
+        />
       </div>
       <div className="py-5">
         <HomeInfoCard
@@ -41,14 +39,14 @@ export default async function Home() {
       </div>
       <div>
         <ContentCarousel
-          title="Trending TV shows"
+          title="Popular TV shows"
           contentType="tv"
-          data={trendingShows}
+          fetchData={getPopularTvShows}
         />
         <ContentCarousel
           title="Now airing TV shows"
           contentType="tv"
-          data={nowAiringShows}
+          fetchData={getNowAiringTvShows}
         />
       </div>
     </main>

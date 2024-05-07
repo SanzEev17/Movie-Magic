@@ -2,14 +2,17 @@
 import React, { useState } from "react";
 import { ChevronLeft, Clapperboard, HomeIcon, Menu, Tv2 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const sidebarItems = [
-  { title: "Explore", icon: HomeIcon, slug:"/" },
-  { title: "Movies", icon: Clapperboard, slug:"/movies/popular/" },
-  { title: "TV-shows", icon: Tv2, slug:"/tv-shows/popular/" },
+  { title: "Explore", icon: HomeIcon, slug: "/" },
+  { title: "Movies", icon: Clapperboard, slug: "/movies/popular/" },
+  { title: "TV-shows", icon: Tv2, slug: "/tv-shows/popular/" },
 ];
 
 const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
+  const pathname = usePathname().split("/")[1];
+  console.log(pathname);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
@@ -27,13 +30,13 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
         {isExpanded ? (
           <div className="absolute right-0 px-3">
             <button onClick={toggleSidebar}>
-              <ChevronLeft size={20} />
+              <ChevronLeft size={20} strokeWidth={3} />
             </button>
           </div>
         ) : (
           <div className="p-4">
             <button onClick={toggleSidebar}>
-              <Menu size={25} />
+              <Menu size={20} />
             </button>
           </div>
         )}
@@ -50,13 +53,24 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
             <h1 className="uppercase font-semibold text-gray-600">Menu</h1>
           )}
           {sidebarItems.map((item, index) => {
+            const slug = item.slug.split("/")[1];
             const Icon = item.icon;
             return (
-              <Link key={index} href={item.slug} className="flex items-center space-x-2">
-                <div className="icon rounded-xl bg-white hover:bg-gray-900 hover:text-white">
-                  <Icon size={15} />
+              <Link
+                key={index}
+                href={item.slug}
+                className="flex items-center space-x-2"
+              >
+                <div
+                  className={`${
+                    pathname === slug ? "bg-gray-900 text-white" : "text-gray-600"
+                  } icon rounded-xl bg-white hover:bg-gray-900 hover:text-white`}
+                >
+                  <Icon size={15} strokeWidth={3} />
                 </div>
-                {isExpanded && <h1 className="font-semibold">{item.title}</h1>}
+                {isExpanded && <h1 className={`${
+                    pathname === slug ? "" : "text-gray-600"
+                  } font-semibold`}>{item.title}</h1>}
               </Link>
             );
           })}
