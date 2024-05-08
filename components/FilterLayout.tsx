@@ -12,13 +12,15 @@ const filterList = [
 
 const FilterLayout = ({
   title,
+  contentType,
   children,
 }: {
   title: string;
+  contentType: "movies" | "tv-shows";
   children: React.ReactNode;
 }) => {
   const pathname = usePathname();
-  const currentPath = pathname.split("/").slice(-1)[0];
+  const currentPath = pathname.split("/")[2];
 
   return (
     <section className="py-3">
@@ -26,7 +28,7 @@ const FilterLayout = ({
       <div className="py-3 flex gap-3 text-xs font-semibold">
         {filterList.map((item, index) => (
           <Link
-            href={item.slug}
+            href={`/${contentType}/${item.slug}`}
             key={index}
             className={`${
               currentPath === item.slug ? "text-white bg-black" : ""

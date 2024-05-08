@@ -12,7 +12,6 @@ const sidebarItems = [
 
 const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
   const pathname = usePathname().split("/")[1];
-  console.log(pathname);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
@@ -63,14 +62,22 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
               >
                 <div
                   className={`${
-                    pathname === slug ? "bg-gray-900 text-white" : "text-gray-600"
-                  } icon rounded-xl bg-white hover:bg-gray-900 hover:text-white`}
+                    pathname === slug
+                      ? "bg-gray-900 text-white"
+                      : "bg-white text-gray-600"
+                  } icon rounded-xl hover:bg-gray-900 hover:text-white`}
                 >
                   <Icon size={15} strokeWidth={3} />
                 </div>
-                {isExpanded && <h1 className={`${
-                    pathname === slug ? "" : "text-gray-600"
-                  } font-semibold`}>{item.title}</h1>}
+                {isExpanded && (
+                  <h1
+                    className={`${
+                      pathname === slug ? "" : "text-gray-600"
+                    } font-semibold`}
+                  >
+                    {item.title}
+                  </h1>
+                )}
               </Link>
             );
           })}

@@ -2,7 +2,7 @@
 
 export async function fetchFromTMDB(
   url: URL,
-  page: number,
+  page: number = 1,
   cacheTime?: number
 ) {
   url.searchParams.set("include_adult", "false");

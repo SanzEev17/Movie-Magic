@@ -6,7 +6,7 @@ export default function MoviesLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <FilterLayout title="Movies" >
+    <FilterLayout title="Movies" contentType="movies" >
         {children}
     </FilterLayout>
   );

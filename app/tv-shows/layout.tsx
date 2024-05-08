@@ -6,7 +6,7 @@ export default function TVShowsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <FilterLayout title="TV Shows" >
+    <FilterLayout title="TV Shows" contentType="tv-shows" >
         {children}
     </FilterLayout>
   );

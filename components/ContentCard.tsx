@@ -30,7 +30,7 @@ const ContentCard = ({ data, contentType }: ContentCardProps) => {
           alt={title}
           fill
           sizes="(max-width: 768px) 20vw, (max-width: 1024px) 15vw, 10vw"
-          quality={60}
+          quality={50}
           className="object-cover"
         />
         <div className="p-2 w-full absolute flex justify-between">
