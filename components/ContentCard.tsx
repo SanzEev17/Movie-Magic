@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Badge from "./Badge";
 import { TVShow, Movie } from "@/typings";
 import Image from "next/image";
@@ -24,7 +24,7 @@ const ContentCard = ({ data, contentType }: ContentCardProps) => {
       href={`${contentType}/${data.id}`}
       className="min-w-44 h-64 rounded-xl shadow-custom overflow-hidden"
     >
-      <div className=" w-full h-full relative">
+      <div className="w-full h-full relative">
         <Image
           src={imageUrl}
           alt={title}

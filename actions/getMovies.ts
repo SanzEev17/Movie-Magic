@@ -35,3 +35,10 @@ export async function getGenreMovies(genreId: string, page: number = 1) {
   const data = await fetchFromTMDB(url, page);
   return data.results as Movie[];
 }
+
+export async function getMoviesByYear(year: string, page: number = 1) {
+  const url = new URL("https://api.themoviedb.org/3/discover/movie");
+  url.searchParams.set("primary_release_year", year);
+  const data = await fetchFromTMDB(url, page);
+  return data.results as Movie[];
+}
