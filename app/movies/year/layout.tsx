@@ -12,7 +12,7 @@ const YearMoviesLayout = ({ children }: { children: React.ReactNode }) => {
     <section className="py-2">
       <div className="flex items-center space-x-3">
         <h1 className="font-semibold">Year: </h1>
-        <SearchInput defaultValue={year} />
+        <SearchInput baseUrl="/movies/year" defaultValue={year} />
       </div>
       {children}
     </section>

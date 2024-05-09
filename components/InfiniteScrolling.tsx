@@ -1,5 +1,5 @@
 "use client";
-import { Movie, TVShow } from "@/typings";
+import { Movie, Person, SearchResults, TVShow } from "@/typings";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import ContentCard from "./ContentCard";
@@ -10,8 +10,10 @@ const InfiniteScrolling = ({
   contentType,
   fetchData,
 }: {
-  contentType: "movie" | "tv";
-  fetchData: (page: number) => Promise<Movie[] | TVShow[]>;
+  contentType: "movie" | "tv" | "person" | "all";
+  fetchData: (
+    page: number
+  ) => Promise<Movie[] | TVShow[] | Person[] | SearchResults[]>;
 }) => {
   const { ref, inView } = useInView();
   const [data, setData] = useState<Movie[] | TVShow[]>([]);

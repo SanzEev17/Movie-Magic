@@ -2,6 +2,7 @@
 import { ChevronLeft, Menu, Search } from "lucide-react";
 import React, { useState } from "react";
 import SearchInput from "./SearchInput";
+import { useSearchParams } from "next/navigation";
 
 type HeaderProps = {
   toggleSidebar: () => void;
@@ -9,6 +10,9 @@ type HeaderProps = {
 };
 
 const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("query") || "";
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -27,8 +31,16 @@ const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
           />
         )}
       </div>
-      <div className={`${isSearchOpen ? "block" : "hidden"} w-full md:block md:max-w-80`}>
-        <SearchInput />
+      <div
+        className={`${
+          isSearchOpen ? "block" : "hidden"
+        } w-full md:block md:max-w-80`}
+      >
+        <SearchInput
+          baseUrl="/search"
+          defaultValue={searchQuery}
+          searchType="query"
+        />
       </div>
       <div
         className={`${isSearchOpen ? "hidden" : ""} md:hidden cursor-pointer`}

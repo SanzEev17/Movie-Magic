@@ -37,7 +37,7 @@ export const sidebarVariants = {
 
 export const sidebarSvgVariants = {
   closed: {
-    rotate: 360,
+    rotate: 0,
   },
   opened: {
     rotate: 180,

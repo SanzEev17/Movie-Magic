@@ -1,12 +1,12 @@
 import React from "react";
-import { Movie, TVShow } from "@/typings";
+import { Movie, Person, PersonSearch, SearchResults, TVShow } from "@/typings";
 import ContentCard from "./ContentCard";
 import InfiniteScrolling from "./InfiniteScrolling";
 
 type CarouselProps = {
   title?: string;
-  contentType: "movie" | "tv" | "people";
-  fetchData: () => Promise<TVShow[] | Movie[]>;
+  contentType: "movie" | "tv" | "person" | "all";
+  fetchData: () => Promise<TVShow[] | Movie[] | Person[] | SearchResults[]>;
   isVertical?: boolean;
 };
 
@@ -30,8 +30,8 @@ const ContentCarousel = async ({
         {data.map((item) => (
           <ContentCard key={item.id} contentType={contentType} data={item} />
         ))}
-        {isVertical && (
-          <InfiniteScrolling contentType="movie" fetchData={fetchData} />
+        {isVertical && data && (
+          <InfiniteScrolling contentType={contentType} fetchData={fetchData} />
         )}
       </div>
     </div>

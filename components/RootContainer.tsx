@@ -15,7 +15,7 @@ const RootContainer = ({
   return (
     <main className="bg-zinc-50">
       <Sidebar isSidebarOpen={isSidebarOpen} />
-      <section className="ml-20 h-dvh overflow-y-auto">
+      <section className="md:ml-20 h-dvh overflow-y-auto">
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <section className="px-4 md:px-8">{children}</section>
       </section>
