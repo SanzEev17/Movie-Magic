@@ -4,6 +4,8 @@ import { TVShow, Movie } from "@/typings";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import { MotionDiv } from "./MotionDiv";
+import { cardVariant } from "@/variants/variants";
 
 type ContentCardProps = {
   data: TVShow | Movie;
@@ -20,25 +22,33 @@ const ContentCard = ({ data, contentType }: ContentCardProps) => {
   const title = "name" in data ? data.name : data.title;
 
   return (
-    <Link
-      href={`${contentType}/${data.id}`}
+    <MotionDiv
+      variants={cardVariant}
+      initial="hidden"
+      whileInView="visible"
+      whileHover="hover"
+      whileTap="click"
+      transition={{ ease: "easeInOut", duration: 0.4 }}
+      viewport={{ once: true }}
       className="min-w-44 h-64 rounded-xl shadow-custom overflow-hidden"
     >
-      <div className="w-full h-full relative">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 20vw, (max-width: 1024px) 15vw, 10vw"
-          quality={50}
-          className="object-cover"
-        />
-        <div className="p-2 w-full absolute flex justify-between">
-          <Badge Icon={Star} iconFill="yellow" text={averageRating} />
-          <Badge text={releaseYear} />
+      <Link href={`/${contentType}/${data.id}`} className="w-full h-full">
+        <div className="w-full h-full relative">
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 20vw, (max-width: 1024px) 15vw, 10vw"
+            quality={50}
+            className="object-cover"
+          />
+          <div className="p-2 w-full absolute flex justify-between">
+            <Badge Icon={Star} iconFill="yellow" text={averageRating} />
+            <Badge text={releaseYear} />
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </MotionDiv>
   );
 };
 
