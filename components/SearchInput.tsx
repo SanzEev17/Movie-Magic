@@ -29,7 +29,6 @@ const SearchInput = ({
     <div className="w-full md:max-w-80 relative text-sm">
       <input
         type="text"
-        // onChange={(e) => handleChange(e)}
         onChange={(e) => setSearchInput(e.target.value)}
         value={searchInput}
         placeholder="Search"

@@ -1,9 +1,9 @@
 "use client";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import React, { useState } from "react";
-import Header from "./Header";
-import Sidebar from "./Sidebar/Sidebar";
 
-const RootContainer = ({
+const WithSidebarLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -23,4 +23,4 @@ const RootContainer = ({
   );
 };
 
-export default RootContainer;
+export default WithSidebarLayout;
