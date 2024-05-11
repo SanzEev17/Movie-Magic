@@ -5,7 +5,7 @@ import { getNowAiringTvShows, getPopularTvShows } from "@/actions/getTvShows";
 
 export default async function Home() {
   return (
-    <main className="flex-1 py-3">
+    <div className="py-3">
       <h1 className="text-3xl font-semibold">Explore</h1>
       <div className="py-5 grid grid-cols-3 space-x-4">
         <HomeInfoCard
@@ -49,6 +49,6 @@ export default async function Home() {
           fetchData={getNowAiringTvShows}
         />
       </div>
-    </main>
+    </div>
   );
 }
