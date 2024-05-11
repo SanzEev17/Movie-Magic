@@ -39,6 +39,6 @@ export const sidebarSvgVariants = {
     rotate: 0,
   },
   opened: {
-    rotate: 180,
+    rotate: -180,
   },
 };
