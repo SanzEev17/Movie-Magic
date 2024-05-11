@@ -18,23 +18,28 @@ const ContentCarousel = async ({
 }: CarouselProps) => {
   const data = await fetchData();
   return (
-    <div className="py-2">
-      {title && <h1 className="text-2xl font-medium">{title}</h1>}
-      <div
-        className={`${
-          isVertical
-            ? "grid grid-cols-card gap-5"
-            : "flex overflow-x-scroll space-x-5"
-        } w-full py-4  no-scrollbar`}
-      >
-        {data.map((item) => (
-          <ContentCard key={item.id} contentType={contentType} data={item} />
-        ))}
-        {isVertical && data && (
-          <InfiniteScrolling contentType={contentType} fetchData={fetchData} />
-        )}
+    data.length > 0 && (
+      <div className="py-2">
+        {title && <h1 className="text-2xl font-medium">{title}</h1>}
+        <div
+          className={`${
+            isVertical
+              ? "grid grid-cols-card gap-5"
+              : "flex overflow-x-scroll space-x-5"
+          } w-full py-4  no-scrollbar`}
+        >
+          {data.map((item) => (
+            <ContentCard key={item.id} contentType={contentType} data={item} />
+          ))}
+          {isVertical && data && (
+            <InfiniteScrolling
+              contentType={contentType}
+              fetchData={fetchData}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

@@ -19,7 +19,7 @@ const CastCard = ({ castData }: { castData: Cast }) => {
         whileTap="click"
         transition={{ ease: "easeInOut", duration: 0.4 }}
         viewport={{ once: true }}
-        className="min-w-40 h-60 rounded-xl overflow-hidden shadow-lg"
+        className="min-w-44 h-60 rounded-xl overflow-hidden shadow-lg"
       >
         <Link href={`/person/${castData.id}`} className="w-full h-full">
           <div className="w-full h-full relative">

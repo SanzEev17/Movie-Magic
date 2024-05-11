@@ -28,9 +28,7 @@ export async function getTopRatedTvShows(page: number = 1) {
 }
 
 export async function getTvShowGenres() {
-  const url = new URL(
-    "https://api.themoviedb.org/3/genre/tv/list?language=en"
-  );
+  const url = new URL("https://api.themoviedb.org/3/genre/tv/list?language=en");
   const data = await fetchFromTMDB(url);
   return data as Genres;
 }
@@ -45,6 +43,17 @@ export async function getGenreTvShows(genreId: string, page: number = 1) {
 export async function getTvShowsByYear(year: string, page: number = 1) {
   const url = new URL("https://api.themoviedb.org/3/discover/tv");
   url.searchParams.set("first_air_date_year", year);
+  const data = await fetchFromTMDB(url, page);
+  return data.results as TVShow[];
+}
+
+export async function getRecommendedTvShows(
+  tvShowId: string,
+  page: number = 1
+) {
+  const url = new URL(
+    `https://api.themoviedb.org/3/tv/${tvShowId}/recommendations`
+  );
   const data = await fetchFromTMDB(url, page);
   return data.results as TVShow[];
 }
