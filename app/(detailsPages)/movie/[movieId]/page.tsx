@@ -12,7 +12,7 @@ const MovieDetails = async ({ params }: { params: { movieId: string } }) => {
   const backdropImgUrl = baseImgUrl + movieDetails.backdrop_path;
   const cardImgUrl = baseImgUrl + movieDetails.poster_path;
   return (
-    <section className="">
+    <main className="">
       <Background backdropImgUrl={backdropImgUrl} title={movieDetails.title} />
       <div className="px-10 py-5 space-y-5">
         <div className="relative flex gap-6">
@@ -27,10 +27,9 @@ const MovieDetails = async ({ params }: { params: { movieId: string } }) => {
           />
         </div>
         <MediaOverview mediaOverview={movieDetails.overview} />
-          <CastCarousel mediaId={params.movieId} mediaType="movie" />
-        
+        <CastCarousel mediaId={params.movieId} mediaType="movie" />
       </div>
-    </section>
+    </main>
   );
 };
 

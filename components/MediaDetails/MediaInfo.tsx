@@ -6,7 +6,7 @@ import React from "react";
 type MediaInfoProps = {
   title: string;
   genres: Genre[];
-  runtime: number;
+  runtime?: number;
   releaseDate: string;
   rating: number;
   productionCompanies: ProductionCompany[];
@@ -20,8 +20,8 @@ const MediaInfo = ({
   rating,
   productionCompanies,
 }: MediaInfoProps) => {
-  const hours = Math.floor(runtime / 60);
-  const minutes = runtime % 60;
+  const hours = runtime ? Math.floor(runtime / 60) : "";
+  const minutes = runtime ? runtime % 60 : "";
 
   return (
     <div className="flex flex-col gap-2">
@@ -39,9 +39,11 @@ const MediaInfo = ({
       </div>
 
       <div className="text-sm flex items-center gap-1 text-gray-500 font-medium">
-        <span>
-          {hours && `${hours}h`} {minutes && `${minutes}min`}
-        </span>
+        {runtime && (
+          <span>
+            {hours && `${hours}h`} {minutes && `${minutes}min`}
+          </span>
+        )}
         <Dot />
         <span>{releaseDate.split("-")[0]}</span>
         <Dot />

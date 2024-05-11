@@ -1,7 +1,13 @@
 "use server";
 
-import { Genres, TVShow } from "@/typings";
+import { Genres, TVShow, TVShowDetails } from "@/typings";
 import { fetchFromTMDB } from "./fetchFromTMDB";
+
+export async function getTvShowById(id: string, page: number = 1) {
+  const url = new URL(`https://api.themoviedb.org/3/tv/${id}`);
+  const data = await fetchFromTMDB(url, page);
+  return data as TVShowDetails;
+}
 
 export async function getNowAiringTvShows(page: number = 1) {
   const url = new URL("https://api.themoviedb.org/3/tv/on_the_air");
