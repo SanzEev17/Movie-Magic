@@ -1,7 +1,13 @@
 "use server";
 
-import { Genres, Movie } from "@/typings";
+import { Genres, Movie, MovieDetails } from "@/typings";
 import { fetchFromTMDB } from "./fetchFromTMDB";
+
+export async function getMovieById(id: string, page: number = 1) {
+  const url = new URL(`https://api.themoviedb.org/3/movie/${id}`);
+  const data = await fetchFromTMDB(url, page);
+  return data as MovieDetails;
+}
 
 export async function getNowPlayingMovies(page: number = 1) {
   const url = new URL("https://api.themoviedb.org/3/movie/now_playing");

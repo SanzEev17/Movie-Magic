@@ -5,11 +5,10 @@ export const cardVariant = {
     y: 0,
     transition: {
       duration: 1,
-      delay: 0.1,
     },
   },
   hover: {
-    scale: 1.1,
+    scale: 1.08,
   },
   click: {
     scale: 0.9,
