@@ -36,7 +36,7 @@ const CastCard = ({ castData }: { castData: Cast }) => {
       </MotionDiv>
       <div>
         <h1 className="text-sm font-semibold">{name}</h1>
-        <p className="text-xs text-gray-500">{character}</p>
+        <p className="text-xs text-muted">{character}</p>
       </div>
     </div>
   );

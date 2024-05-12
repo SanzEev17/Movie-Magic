@@ -20,20 +20,20 @@ const SidebarLinks = ({ name, slug, icon, isExpanded }: SidebarLinksProps) => {
       <div
         className={`${
           pathname === link
-            ? "bg-gray-900 text-white"
-            : "bg-white text-gray-600"
-        } icon rounded-xl group-hover:bg-gray-900 group-hover:text-white`}
+            ? "bg-tabs-background text-tabs"
+            : "bg-icon-background text-icon"
+        } icon rounded-xl group-hover:bg-tabs-background group-hover:text-tabs`}
       >
         <Icon size={15} strokeWidth={3} />
       </div>
       {isExpanded && (
         <motion.p
-        initial={{opacity:0}}
-        animate={{opacity:1}}
-        transition={{ease:"easeInOut", duration:0.8}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.8 }}
           className={`${
-            pathname === link ? "" : "text-gray-600"
-          } whitespace-nowrap font-semibold group-hover:text-zinc-900`}
+            pathname === link ? "" : "text-muted"
+          } whitespace-nowrap font-semibold group-hover:text-inherit`}
         >
           {name}
         </motion.p>

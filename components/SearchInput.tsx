@@ -32,7 +32,7 @@ const SearchInput = ({
         onChange={(e) => setSearchInput(e.target.value)}
         value={searchInput}
         placeholder="Search"
-        className="w-full bg-zinc-100 ps-4 pe-8 py-2 rounded-md placeholder:text-zinc-800 placeholder:font-semibold"
+        className="w-full bg-input-background ps-4 pe-8 py-2 rounded-md placeholder:text-input placeholder:font-semibold"
       />
       <div className="absolute right-0 top-0 p-2 ">
         <Search size={20} strokeWidth={3} />

@@ -35,7 +35,7 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
       variants={sidebarVariants}
       initial="closed"
       animate={sidebarControls}
-      className={`flex flex-col z-20 md:block fixed h-dvh bg-zinc-100 border-r text-sm py-3 px-5
+      className={`bg-sidebar backdrop-blur-lg flex flex-col z-20 md:block fixed h-dvh shadow-lg text-sm py-3 px-5
       ${isSidebarOpen ? "fixed" : "hidden"}
       `}
     >

@@ -5,17 +5,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronLeft, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
-const headerVariant = {
-  visible: {
-    backgroundColor: "rgba(255, 255, 255, 0.75)",
-    backdropFilter: "blur(16px) saturate(180%)",
-  },
-  hidden: {
-    // backgroundColor:"transparent",
-    backdropFilter: "unset",
-  },
-};
+import { headerVariant } from "@/variants/variants";
 
 const Header = () => {
   const [showBackground, setShowBackground] = useState(false);

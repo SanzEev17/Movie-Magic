@@ -8,13 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       gridTemplateColumns: {
         card: "repeat(auto-fill,minmax(176px,1fr))",
+      },
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        sidebar: "var(--sidebar)",
+        header: "var(--header)",
+        tabs: {
+          DEFAULT: "var(--tabs)",
+          background: "var(--tabs-background)",
+        },
+        icon: {
+          DEFAULT: "var(--icon)",
+          background: "var(--icon-background)",
+        },
+        input: {
+          DEFAULT: "var(--input)",
+          background: "var(--input-background)",
+        },
       },
     },
   },

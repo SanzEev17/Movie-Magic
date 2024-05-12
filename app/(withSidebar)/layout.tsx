@@ -13,7 +13,7 @@ const WithSidebarLayout = ({
     setIsSidebarOpen(!isSidebarOpen);
   };
   return (
-    <main className="bg-zinc-50">
+    <main>
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <section className="md:ml-20 h-dvh overflow-y-auto">
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />

@@ -34,20 +34,20 @@ const MediaInfo = ({
   return (
     <div className="flex flex-col gap-2">
       {/* Media Title  */}
-      <h1 className="text-4xl font-bold text-zinc-900">{title}</h1>
+      <h1 className="text-4xl font-bold text-foreground pb-4">{title}</h1>
       <div className="flex items-center gap-3 font-medium">
         {/* List of genres  */}
         {genres.map((genre) => (
           <Link
             key={genre.id}
             href={`/movies/genre/${genre.id}`}
-            className="text-xs px-3 py-1 border border-black rounded-md"
+            className="text-xs px-3 py-1 border border-primary rounded-md"
           >
             {genre.name}
           </Link>
         ))}
       </div>
-      <div className="text-sm flex items-center gap-1 text-gray-500 font-medium">
+      <div className="text-sm flex items-center gap-1 text-muted font-medium">
         {/* Total runtime of movie  */}
         {runtime && (
           <span className="flex items-center gap-1">

@@ -19,7 +19,7 @@ const Background = ({
         style={{ objectFit: "cover", objectPosition: "center top" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/[0] to-black"></div>
-      <div className="h-5 w-full absolute bg-white bottom-0 rounded-t-3xl"></div>
+      <div className="bg-background h-5 w-full absolute bottom-0 rounded-t-3xl"></div>
     </div>
   );
 };

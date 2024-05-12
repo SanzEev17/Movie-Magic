@@ -19,7 +19,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
   };
 
   return (
-    <header className="px-4 md:px-8 py-5 sticky top-0 z-10 h-16 md:h-20 flex justify-between items-center bg-white/[0.75] backdrop-blur-lg backdrop-saturate-[180%]">
+    <header className="px-4 md:px-8 py-5 sticky top-0 z-10 h-16 md:h-20 flex justify-between items-center bg-header backdrop-blur-lg backdrop-saturate-[180%]">
       <div className="md:hidden pe-2">
         {isSearchOpen ? (
           <ChevronLeft size={20} strokeWidth={3} onClick={toggleSearch} />

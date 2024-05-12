@@ -42,3 +42,13 @@ export const sidebarSvgVariants = {
     rotate: -180,
   },
 };
+
+export const headerVariant = {
+  visible: {
+    backgroundColor: "var(--header)",
+    backdropFilter: "blur(16px) saturate(180%)",
+  },
+  hidden: {
+    backdropFilter: "unset",
+  },
+};

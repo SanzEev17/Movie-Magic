@@ -46,7 +46,9 @@ const AboutActor = ({
       {homepage && (
         <div>
           <span className="font-semibold">Homepage: </span>
-          <span>{homepage}</span>
+          <a href={homepage} target="_blank" className="hover:text-blue-500">
+            {homepage}
+          </a>
         </div>
       )}
     </div>

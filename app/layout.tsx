@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fontFamily.className} text-zinc-800`}>
+      <body className={`${fontFamily.className}`}>
         {children}
       </body>
     </html>
