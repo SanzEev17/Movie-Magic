@@ -4,6 +4,8 @@ import { ArrowRight, Clapperboard, HomeIcon, Tv2 } from "lucide-react";
 import { motion, useAnimationControls } from "framer-motion";
 import { sidebarSvgVariants, sidebarVariants } from "@/variants/variants";
 import SidebarLinks from "./SidebarLinks";
+import SidebarTitle from "./SidebarTitle";
+import DarkModeToggler from "../DarkModeToggler";
 
 const sidebarItems = [
   { name: "Explore", icon: HomeIcon, slug: "/" },
@@ -39,24 +41,13 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
       ${isSidebarOpen ? "fixed" : "hidden"}
       `}
     >
-      <div className="py-4 px-3 w-full flex justify-between items-center">
-        <h1 className="overflow-clip font-semibold text-lg">MovieMagic</h1>
-        <button className="" onClick={toggleSidebar}>
-          <motion.div
-            variants={sidebarSvgVariants}
-            animate={arrowButtonControls}
-            transition={{
-              duration: 0.5,
-              ease: "easeInOut",
-            }}
-          >
-            <ArrowRight size={20} />
-          </motion.div>
-        </button>
-      </div>
+      <SidebarTitle
+        toggleSidebar={toggleSidebar}
+        arrowButtonControls={arrowButtonControls}
+      />
 
       {/* Sidebar content */}
-      <div className={`flex flex-col py-8 space-y-5 border-b-2`}>
+      <div className="flex flex-col py-8 space-y-5 border-b border-border">
         {sidebarItems.map((item, index) => (
           <SidebarLinks
             key={index}
@@ -66,6 +57,9 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
             icon={item.icon}
           />
         ))}
+      </div>
+      <div className="flex flex-col md:hidden py-8 space-y-5 border-b border-border">
+        <DarkModeToggler />
       </div>
     </motion.nav>
   );

@@ -8,7 +8,6 @@ import MediaOverview from "@/components/MediaDetails/MediaOverview";
 
 const MovieDetails = async ({ params }: { params: { movieId: string } }) => {
   const movieDetails = await getMovieById(params.movieId);
-  console.log(movieDetails)
   const getSimilarMovies = async (page: number = 1) => {
     "use server";
     return getRecommendedMovies(params.movieId, page);

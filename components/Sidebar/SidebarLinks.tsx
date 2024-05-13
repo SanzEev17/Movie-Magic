@@ -22,7 +22,7 @@ const SidebarLinks = ({ name, slug, icon, isExpanded }: SidebarLinksProps) => {
           pathname === link
             ? "bg-tabs-background text-tabs"
             : "bg-icon-background text-icon"
-        } icon rounded-xl group-hover:bg-tabs-background group-hover:text-tabs`}
+        } icon group-hover:bg-tabs-background group-hover:text-tabs`}
       >
         <Icon size={15} strokeWidth={3} />
       </div>

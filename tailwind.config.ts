@@ -29,6 +29,9 @@ const config: Config = {
           DEFAULT: "var(--input)",
           background: "var(--input-background)",
         },
+        border: {
+          DEFAULT: "var(--border)",
+        },
       },
     },
   },

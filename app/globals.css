@@ -15,6 +15,7 @@
     --header: rgba(255, 255, 255, 0.75);
     --input: rgb(39, 39, 42);
     --input-background: rgb(244, 244, 245);
+    --border: rgba(129, 131, 146, 0.24);
   }
 
   .dark {
@@ -24,11 +25,12 @@
     --sidebar: rgba(15, 23, 31, 0.85);
     --tabs: rgb(47, 47, 51);
     --tabs-background: rgb(255, 255, 255);
-    --icon: rgb(255, 255, 255);
+    --icon: rgb(102, 106, 112);
     --icon-background: rgb(35, 40, 45);
     --header: rgba(10, 16, 22, 0.75);
     --input: rgb(240, 233, 233);
     --input-background: rgb(30, 40, 50);
+    --border: rgba(129, 131, 146, 0.24);
   }
 }
 
@@ -47,6 +49,6 @@
     scrollbar-width: none; /* Firefox */
   }
   .icon {
-    @apply h-9 min-w-9 p-2 cursor-pointer flex items-center justify-center;
+    @apply h-9 min-w-9 max-w-9 p-2 rounded-xl border border-border cursor-pointer flex items-center justify-center;
   }
 }

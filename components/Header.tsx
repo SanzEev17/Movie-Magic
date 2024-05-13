@@ -3,6 +3,7 @@ import { ChevronLeft, Menu, Search } from "lucide-react";
 import React, { useState } from "react";
 import SearchInput from "./SearchInput";
 import { useSearchParams } from "next/navigation";
+import DarkModeToggler from "./DarkModeToggler";
 
 type HeaderProps = {
   toggleSidebar: () => void;
@@ -47,6 +48,9 @@ const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
         onClick={toggleSearch}
       >
         <Search size={20} />
+      </div>
+      <div className="hidden md:block">
+        <DarkModeToggler />
       </div>
     </header>
   );
