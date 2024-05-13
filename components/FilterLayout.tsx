@@ -24,7 +24,7 @@ const FilterLayout = ({
 
   return (
     <section className="py-3">
-      <h1 className="py-3 text-3xl font-semibold">Explore {title}</h1>
+      <h1 className="py-3 text-3xl font-semibold">Browse {title}</h1>
       <div className="py-3 flex gap-3 text-xs font-semibold">
         {filterList.map((item, index) => (
           <Link

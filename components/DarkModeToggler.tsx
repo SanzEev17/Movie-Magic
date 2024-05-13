@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion, useAnimationControls } from "framer-motion";
@@ -7,19 +7,26 @@ import { motion, useAnimationControls } from "framer-motion";
 const DarkModeToggler = () => {
   const controls = useAnimationControls();
   const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleToggle = () => {
     controls.start(resolvedTheme === "light" ? "dark" : "light");
     setTheme(resolvedTheme === "light" ? "dark" : "light");
   };
+
+  if (!mounted) return null;
+
   return (
     <div
       onClick={handleToggle}
       className="flex group items-center space-x-2 cursor-pointer"
     >
       <div className="icon bg-icon-background">
-        {resolvedTheme === "light" && <Sun size={15} />}
-        {resolvedTheme === "dark" && <Moon size={15} />}
+        {resolvedTheme === "light" ? <Sun size={15} /> : <Moon size={15} />}
       </div>
       <motion.p
         initial={{ opacity: 0 }}

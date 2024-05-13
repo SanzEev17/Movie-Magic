@@ -3,6 +3,7 @@ import { Movie, Person, SearchResults, TVShow } from "@/typings";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import ContentCard from "./ContentCard";
+import SkeletonCard from "./Skeleton/SkeletonCard";
 
 let page = 2;
 
@@ -32,8 +33,8 @@ const InfiniteScrolling = ({
       {data.map((item) => (
         <ContentCard key={item.id} contentType={contentType} data={item} />
       ))}
-      <div className="w-full text-center" ref={ref}>
-        Load more
+      <div ref={ref}>
+        <SkeletonCard />
       </div>
     </>
   );

@@ -14,7 +14,7 @@ const GenresList = async ({ contentType }: { contentType: "movie" | "tv" }) => {
       <div className="py-6 grid grid-cols-card gap-5">
         {data.genres.map((genre, index) => (
           <Link key={index} href={`/${path}/genre/${genre.id}`}>
-            <div className="py-3 text-center shadow-md border-t rounded-lg font-semibold hover:bg-gray-800 hover:text-white">
+            <div className="py-3 text-center shadow-md border-t rounded-lg font-semibold hover:bg-tabs-background hover:text-tabs">
               {genre.name}
             </div>
           </Link>
