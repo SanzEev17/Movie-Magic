@@ -32,7 +32,7 @@ const FilterLayout = ({
             key={index}
             className={`${
               currentPath === item.slug ? "text-tabs bg-tabs-background" : ""
-            } px-3 py-1.5 border border-foreground rounded-md hover:text-tabs hover:bg-tabs-background`}
+            } px-3 py-1.5 border border-primary rounded-md hover:text-tabs hover:bg-tabs-background`}
           >
             {item.name}
           </Link>

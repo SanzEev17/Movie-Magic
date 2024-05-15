@@ -1,9 +1,11 @@
 import { Genre, ProductionCompany } from "@/typings";
-import { Dot, Star } from "lucide-react";
+import { ArrowRight, Dot, Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { MotionDiv } from "../MotionDiv";
 
 type MediaInfoProps = {
+  id: number;
   title: string;
   genres: Genre[];
   runtime?: number;
@@ -17,6 +19,7 @@ type MediaInfoProps = {
 };
 
 const MediaInfo = ({
+  id,
   title,
   genres,
   runtime,
@@ -34,7 +37,7 @@ const MediaInfo = ({
   return (
     <div className="flex flex-col gap-2">
       {/* Media Title  */}
-      <h1 className="text-4xl font-bold text-foreground pb-4">{title}</h1>
+      <h1 className="text-4xl font-bold text-primary">{title}</h1>
       <div className="flex items-center gap-3 font-medium">
         {/* List of genres  */}
         {genres.map((genre) => (
@@ -97,6 +100,24 @@ const MediaInfo = ({
           </span>
         ))}
       </div>
+      {seasons && episodes && (
+        //* It will be visible only in tv shows
+        <Link href={`/tv/${id}/season/1`} className="w-fit">
+          <MotionDiv
+            whileHover={{
+              backgroundColor: "var(--tabs-background)",
+              color: "var(--tabs)",
+              scale: 1.08,
+            }}
+            whileTap={{ scale: 0.8 }}
+            transition={{ ease: "easeInOut", duration: 0.5 }}
+            className="border border-primary flex items-center justify-center gap-2 px-4 py-2 text-xs rounded-xl"
+          >
+            <span className="font-semibold">Seasons</span>
+            <ArrowRight size={12} />
+          </MotionDiv>
+        </Link>
+      )}
     </div>
   );
 };

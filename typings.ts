@@ -93,7 +93,7 @@ interface MediaDetails {
   backdrop_path: string;
   genres: Genre[];
   homepage: string | null;
-  id: boolean;
+  id: number;
   origin_country: string[];
   original_language: string;
   overview: string;
@@ -140,6 +140,17 @@ interface TvShowEpisode {
   still_path: string;
 }
 
+export interface TVShowSeasons {
+  air_date: string | null;
+  episode_count: number;
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
+}
+
 export interface TVShowDetails extends MediaDetails {
   created_by: Array<{
     id: number;
@@ -161,16 +172,7 @@ export interface TVShowDetails extends MediaDetails {
   number_of_episodes: number;
   number_of_seasons: number;
   original_name: string;
-  seasons: Array<{
-    air_date: string | null;
-    episode_count: number;
-    id: number;
-    name: string;
-    overview: string;
-    poster_path: string;
-    season_number: number;
-    vote_average: number;
-  }>;
+  seasons: TVShowSeasons[];
   status: string;
   tagline: string;
   type: string;
@@ -185,8 +187,50 @@ export interface Cast {
   original_name: string;
   popularity: number;
   profile_path: string;
-  cast_id: 2;
+  cast_id: number;
   character: string;
   credit_id: string;
   order: number;
+}
+
+export interface TVSeasonEpisode {
+  air_date: string;
+  episode_number: number;
+  episode_type: string;
+  id: number;
+  name: string;
+  overview: string;
+  production_code: string;
+  runtime: number;
+  season_number: number;
+  show_id: number;
+  still_path: string;
+  vote_average: number;
+  vote_count: number;
+  crew: Array<{
+    department: string;
+    job: string;
+    credit_id: string;
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string;
+  }>;
+  guest_stars: Array<{
+    character: string;
+    credit_id: string;
+    order: 8;
+    adult: boolean;
+    gender: 2;
+    id: 61535;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: 15.189;
+    profile_path: string;
+  }>;
 }

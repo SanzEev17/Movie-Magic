@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: rgb(255 255 255);
-    --foreground: rgb(39, 39, 43);
+    --primary: rgb(39, 39, 43);
     --muted: rgb(107 114 128);
     --sidebar: rgba(230, 230, 230, 0.85);
     --tabs: rgb(255, 255, 255);
@@ -20,7 +20,7 @@
 
   .dark {
     --background: rgb(10, 16, 22);
-    --foreground: rgb(239, 230, 230);
+    --primary: rgb(239, 230, 230);
     --muted: rgb(142, 142, 155);
     --sidebar: rgba(15, 23, 31, 0.85);
     --tabs: rgb(47, 47, 51);
@@ -36,7 +36,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-primary;
   }
 }
 

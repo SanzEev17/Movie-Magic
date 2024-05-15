@@ -6,7 +6,7 @@ const PopularTVShowsPage = async () => {
   return (
     <ContentCarousel
       isVertical={true}
-      contentType="movie"
+      contentType="tv"
       fetchData={getPopularTvShows}
     />
   );

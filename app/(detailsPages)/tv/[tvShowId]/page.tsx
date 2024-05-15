@@ -23,6 +23,7 @@ const TvShowDetails = async ({ params }: { params: { tvShowId: string } }) => {
         <div className="relative flex gap-6">
           <ImageCard imageUrl={cardImgUrl} title={tvShowDetails.name} />
           <MediaInfo
+            id={tvShowDetails.id}
             title={tvShowDetails.name}
             genres={tvShowDetails.genres}
             episodes={tvShowDetails.number_of_episodes}
@@ -38,7 +39,7 @@ const TvShowDetails = async ({ params }: { params: { tvShowId: string } }) => {
         <CastCarousel mediaId={params.tvShowId} mediaType="tv" />
         <ContentCarousel
           title="You may also like"
-          contentType="movie"
+          contentType="tv"
           fetchData={getSimilarTvShows}
         />
       </div>

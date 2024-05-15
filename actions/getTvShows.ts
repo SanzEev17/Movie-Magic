@@ -1,6 +1,6 @@
 "use server";
 
-import { Genres, TVShow, TVShowDetails } from "@/typings";
+import { Genres, TVSeasonEpisode, TVShow, TVShowDetails } from "@/typings";
 import { fetchFromTMDB } from "./fetchFromTMDB";
 
 export async function getTvShowById(id: string, page: number = 1) {
@@ -56,4 +56,16 @@ export async function getRecommendedTvShows(
   );
   const data = await fetchFromTMDB(url, page);
   return data.results as TVShow[];
+}
+
+export async function getTvSeason(
+  tvShowId: string,
+  seasonId: string,
+  page: number = 1
+) {
+  const url = new URL(
+    `https://api.themoviedb.org/3/tv/${tvShowId}/season/${seasonId}`
+  );
+  const data = await fetchFromTMDB(url, page);
+  return data.episodes as TVSeasonEpisode[];
 }

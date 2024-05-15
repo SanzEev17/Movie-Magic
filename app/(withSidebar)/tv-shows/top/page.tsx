@@ -6,7 +6,7 @@ const TopRatedMoviesPage = () => {
   return (
     <ContentCarousel
       isVertical={true}
-      contentType="movie"
+      contentType="tv"
       fetchData={getTopRatedTvShows}
     />
   );
