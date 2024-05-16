@@ -1,8 +1,9 @@
 import { Genre, ProductionCompany } from "@/typings";
-import { ArrowRight, Dot, Star } from "lucide-react";
-import Link from "next/link";
+import { Dot, Star } from "lucide-react";
 import React from "react";
-import { MotionDiv } from "../MotionDiv";
+import MediaGenres from "./MediaGenres";
+import MediaProductionCompanies from "./MediaProductionCompanies";
+import TvSeasonsButton from "./TvSeasonsButton";
 
 type MediaInfoProps = {
   id: number;
@@ -35,22 +36,21 @@ const MediaInfo = ({
   const minutes = runtime ? runtime % 60 : "";
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="text-[10px] md:text-xs flex flex-col gap-2">
       {/* Media Title  */}
-      <h1 className="text-4xl font-bold text-primary">{title}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold text-primary">{title}</h1>
       <div className="flex items-center gap-3 font-medium">
         {/* List of genres  */}
         {genres.map((genre) => (
-          <Link
+          <MediaGenres
             key={genre.id}
-            href={`/movies/genre/${genre.id}`}
-            className="text-xs px-3 py-1 border border-primary rounded-md"
-          >
-            {genre.name}
-          </Link>
+            genreId={genre.id}
+            genreName={genre.name}
+          />
         ))}
       </div>
-      <div className="text-sm flex items-center gap-1 text-muted font-medium">
+
+      <div className="md:text-sm flex items-center gap-1 text-muted font-medium">
         {/* Total runtime of movie  */}
         {runtime && (
           <span className="flex items-center gap-1">
@@ -90,33 +90,12 @@ const MediaInfo = ({
           {rating.toFixed(1)}
         </span>
       </div>
-      {/* Production companies  */}
-      <div className="text-sm">
-        <span className="font-medium">Production: </span>
-        {productionCompanies.map((company, index) => (
-          <span key={company.id}>
-            {company.name}
-            <span>{index !== productionCompanies.length - 1 && ", "}</span>
-          </span>
-        ))}
-      </div>
+
+      <MediaProductionCompanies productionCompanies={productionCompanies} />
+
       {seasons && episodes && (
         //* It will be visible only in tv shows
-        <Link href={`/tv/${id}/season/1`} className="w-fit">
-          <MotionDiv
-            whileHover={{
-              backgroundColor: "var(--tabs-background)",
-              color: "var(--tabs)",
-              scale: 1.08,
-            }}
-            whileTap={{ scale: 0.8 }}
-            transition={{ ease: "easeInOut", duration: 0.5 }}
-            className="border border-primary flex items-center justify-center gap-2 px-4 py-2 text-xs rounded-xl"
-          >
-            <span className="font-semibold">Seasons</span>
-            <ArrowRight size={12} />
-          </MotionDiv>
-        </Link>
+        <TvSeasonsButton tvShowId={id} />
       )}
     </div>
   );

@@ -9,7 +9,7 @@ const ImageCard = ({
   title: string;
 }) => {
   return (
-    <div className="w-fit h-fit -mt-28 rounded-3xl overflow-hidden">
+    <div className="w-fit h-fit -mt-32 md:-mt-28 rounded-3xl overflow-hidden">
       <Image
         src={imageUrl}
         alt={title}

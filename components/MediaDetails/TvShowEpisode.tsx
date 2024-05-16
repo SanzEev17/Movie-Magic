@@ -9,18 +9,18 @@ const TvShowEpisode = ({ episodeData }: { episodeData: TVSeasonEpisode }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original/${episodeData.still_path}`;
 
   return (
-    <div className="flex col-span-2 md:col-span-1 gap-2 border border-border rounded-xl">
+    <div className="flex flex-col md:flex-row col-span-2 md:col-span-1 gap-2 border border-border rounded-xl">
       <div className="relative h-48 min-w-48 rounded-xl overflow-hidden">
         <Image
           src={imageUrl}
           alt={episodeData.name}
           fill
-          sizes="(max-width: 768px) 20vw, (max-width: 1024px) 15vw, 10vw"
+          sizes="(max-width: 768px) 30vw, (max-width: 1024px) 20vw, 15vw"
           quality={50}
           className="object-cover"
         />
       </div>
-      <div className="py-3 px-3 space-y-2">
+      <div className="py-3 px-5 space-y-2">
         <h1 className="font-semibold text-xl">
           <span>{episodeData.episode_number}.&nbsp;</span>
           <span>{episodeData.name}</span>

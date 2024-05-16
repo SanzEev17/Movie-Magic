@@ -21,7 +21,7 @@ const PersonPage = async ({ params }: { params: { personId: string } }) => {
   return (
     <section className="py-6">
       <div className="flex flex-col gap-10">
-        <div className="flex gap-10">
+        <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
           <ActorImage
             profileUrl={actorsData.profile_path}
             actorsName={actorsData.name}

@@ -24,7 +24,7 @@ const ContentCarousel = async ({
     <Suspense fallback={<SkeletonCarousel isVertical={isVertical} />}>
       {data.length > 0 ? (
         <div className="py-2">
-          {title && <h1 className="text-2xl font-medium">{title}</h1>}
+          {title && <h1 className="text-xl md:text-2xl font-medium">{title}</h1>}
           <div
             className={`${
               isVertical

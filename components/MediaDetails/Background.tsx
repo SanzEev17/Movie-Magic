@@ -9,7 +9,7 @@ const Background = ({
   title: string;
 }) => {
   return (
-    <div className="h-[80vh] relative">
+    <div className="h-[60vh] md:h-[80vh] relative">
       <Image
         src={backdropImgUrl}
         alt={title}

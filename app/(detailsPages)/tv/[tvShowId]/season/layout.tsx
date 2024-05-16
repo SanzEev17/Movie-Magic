@@ -11,7 +11,7 @@ const TVSeasonLayout = async ({
 }) => {
   const tvShowDetails = await getTvShowById(params.tvShowId);
   return (
-    <section className="my-16 md:my-20 px-8 md:px-14 py-12">
+    <section className="mt-16 md:mt-20 px-8 md:px-14 py-6 md:py-12">
       <div className="flex flex-col gap-6">
         <h1 className="text-4xl font-bold">{tvShowDetails.name}</h1>
         <TvSeasonsTabs seasons={tvShowDetails.seasons} />

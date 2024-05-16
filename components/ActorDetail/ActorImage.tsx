@@ -20,7 +20,7 @@ const ActorImage = ({
       whileTap="click"
       transition={{ ease: "easeInOut", duration: 0.4 }}
       viewport={{ once: true }}
-      className="min-w-64 h-96 rounded-xl shadow-custom overflow-hidden"
+      className="w-64 h-96 rounded-xl shadow-custom overflow-hidden"
     >
       <div className="w-full h-full relative">
         <Image
