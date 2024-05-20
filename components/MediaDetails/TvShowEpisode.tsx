@@ -9,7 +9,7 @@ const TvShowEpisode = ({ episodeData }: { episodeData: TVSeasonEpisode }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original/${episodeData.still_path}`;
 
   return (
-    <div className="flex flex-col md:flex-row col-span-2 md:col-span-1 gap-2 border border-border rounded-xl">
+    <div className="max-h-48 flex flex-col md:flex-row col-span-2 md:col-span-1 gap-2 border border-border rounded-xl">
       <div className="relative h-48 min-w-48 rounded-xl overflow-hidden">
         <Image
           src={imageUrl}
@@ -37,7 +37,9 @@ const TvShowEpisode = ({ episodeData }: { episodeData: TVSeasonEpisode }) => {
             {episodeData.vote_average.toFixed(1)}
           </span>
         </div>
-        <p className="text-muted text-sm font-medium">{episodeData.overview}</p>
+        <p className="text-muted text-sm font-medium line-clamp-4">
+          {episodeData.overview}
+        </p>
       </div>
     </div>
   );

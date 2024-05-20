@@ -9,14 +9,26 @@ const WithSidebarLayout = ({
   children: React.ReactNode;
 }>) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const toggleSidebar = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const expandSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
+  const toggleSidebarInMobile = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    setIsExpanded(!isExpanded);
   };
   return (
     <main>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        isExpanded={isExpanded}
+        expandSidebar={expandSidebar}
+      />
       <section className="md:ml-20 h-dvh overflow-y-auto">
-        <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <Header
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebarInMobile}
+        />
         <section className="px-4 md:px-8">{children}</section>
       </section>
     </main>

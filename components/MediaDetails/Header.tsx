@@ -3,18 +3,17 @@ import React from "react";
 import SearchInput from "@/components/SearchInput";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronLeft, Search } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { headerVariant } from "@/variants/variants";
+import Link from "next/link";
 
 const Header = () => {
   const [showBackground, setShowBackground] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
-    latest > 300 ? setShowBackground(true) : setShowBackground(false);
+    latest > 100 ? setShowBackground(true) : setShowBackground(false);
   });
 
-  const router = useRouter();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -30,20 +29,20 @@ const Header = () => {
       <motion.div
         whileHover={{ scale: 1.1 }}
         transition={{ ease: "easeInOut", duration: 0.2 }}
-        className={`${
-          showBackground ? "text-inherit" : "text-white"
-        } cursor-pointer`}
+        className={`${showBackground ? "text-inherit" : "text-white"
+          } cursor-pointer`}
       >
         {isSearchOpen ? (
           <ChevronLeft size={25} onClick={toggleSearch} />
         ) : (
-          <ChevronLeft size={25} onClick={() => router.back()} />
+          <Link href="/">
+            <ChevronLeft size={25} />
+          </Link>
         )}
       </motion.div>
       <div
-        className={`${
-          isSearchOpen ? "block" : "hidden"
-        } w-full md:block md:max-w-80`}
+        className={`${isSearchOpen ? "block" : "hidden"
+          } w-full md:block md:max-w-80`}
       >
         <SearchInput baseUrl="/search" searchType="query" />
       </div>

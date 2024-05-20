@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { ArrowRight, Clapperboard, HomeIcon, Tv2 } from "lucide-react";
+import React, { useEffect } from "react";
+import { Clapperboard, HomeIcon, Tv2 } from "lucide-react";
 import { motion, useAnimationControls } from "framer-motion";
-import { sidebarSvgVariants, sidebarVariants } from "@/variants/variants";
+import { sidebarVariants } from "@/variants/variants";
 import SidebarLinks from "./SidebarLinks";
 import SidebarTitle from "./SidebarTitle";
 import DarkModeToggler from "../DarkModeToggler";
@@ -13,11 +13,18 @@ const sidebarItems = [
   { name: "TV-shows", icon: Tv2, slug: "/tv-shows/popular/" },
 ];
 
-const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Sidebar = ({
+  isSidebarOpen,
+  isExpanded,
+  expandSidebar,
+}: {
+  isSidebarOpen: boolean;
+  isExpanded: boolean;
+  expandSidebar: () => void;
+}) => {
   const sidebarControls = useAnimationControls();
   const arrowButtonControls = useAnimationControls();
-
+  
   useEffect(() => {
     if (isExpanded) {
       sidebarControls.start("opened");
@@ -27,10 +34,6 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
       arrowButtonControls.start("closed");
     }
   }, [isExpanded]);
-
-  const toggleSidebar = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <motion.nav
@@ -42,7 +45,7 @@ const Sidebar = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
       `}
     >
       <SidebarTitle
-        toggleSidebar={toggleSidebar}
+        toggleSidebar={expandSidebar}
         arrowButtonControls={arrowButtonControls}
       />
 

@@ -6,7 +6,7 @@ import React from "react";
 const YearTvShowsLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const data = pathname.split("/").slice(-1)[0];
-  const year = data !== "year" ? data : ""
+  const year = data !== "year" ? data : "";
 
   return (
     <section className="py-2">
