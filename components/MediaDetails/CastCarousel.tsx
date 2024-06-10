@@ -11,7 +11,7 @@ const CastCarousel = async ({
 }) => {
   const casts = await getCasts(mediaId, mediaType);
   const actingCasts = casts.filter(
-    (cast) => cast.known_for_department === "Acting"
+    (cast) => cast.known_for_department === "Acting",
   );
 
   return (
@@ -19,7 +19,7 @@ const CastCarousel = async ({
       <h1 className="text-lg font-semibold">Cast</h1>
       <div className="flex overflow-x-scroll gap-4 w-full py-4  no-scrollbar">
         {actingCasts.map((castData) => (
-          <CastCard key={castData.cast_id} castData={castData} />
+          <CastCard key={castData.id} castData={castData} />
         ))}
       </div>
     </div>

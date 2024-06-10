@@ -16,6 +16,9 @@
     --input: rgb(39, 39, 42);
     --input-background: rgb(244, 244, 245);
     --border: rgba(129, 131, 146, 0.24);
+    --button: rgba(240, 233, 235);
+    /* --button-foreground: rgb(15, 23, 42); */
+    --button-foreground: 15, 23, 42;
   }
 
   .dark {
@@ -31,6 +34,8 @@
     --input: rgb(240, 233, 233);
     --input-background: rgb(30, 40, 50);
     --border: rgba(129, 131, 146, 0.24);
+    --button: rgb(240, 230, 235);
+    --button-foreground: rgba(0, 0, 0, 1);
   }
 }
 
