@@ -13,6 +13,10 @@ const WithSidebarLayout = ({
   const expandSidebar = () => {
     setIsExpanded(!isExpanded);
   };
+  const closeSidebar = () => {
+    setIsExpanded(false);
+    setIsSidebarOpen(false);
+  };
   const toggleSidebarInMobile = () => {
     setIsSidebarOpen(!isSidebarOpen);
     setIsExpanded(!isExpanded);
@@ -23,6 +27,7 @@ const WithSidebarLayout = ({
         isSidebarOpen={isSidebarOpen}
         isExpanded={isExpanded}
         expandSidebar={expandSidebar}
+        closeSidebar={closeSidebar}
       />
       <section className="md:ml-20 h-dvh overflow-y-auto">
         <Header

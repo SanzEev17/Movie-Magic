@@ -32,7 +32,7 @@ const DarkModeToggler = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.8 }}
-        className="md:hidden text-muted whitespace-nowrap font-semibold group-hover:text-inherit"
+        className="md:hidden text-muted whitespace-nowrap overflow-hidden font-semibold group-hover:text-inherit"
       >
         Light/Dark
       </motion.p>

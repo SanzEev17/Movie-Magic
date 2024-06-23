@@ -12,7 +12,7 @@ const SidebarTitle = ({
 }) => {
   return (
     <div className="py-4 px-3 w-full flex justify-between items-center">
-      <h1 className="overflow-clip font-semibold text-lg">MovieMagic</h1>
+      <h1 className="overflow-hidden font-semibold text-lg">MovieMagic</h1>
       <button className="" onClick={toggleSidebar}>
         <motion.div
           variants={sidebarSvgVariants}
